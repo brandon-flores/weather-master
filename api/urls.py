@@ -15,8 +15,13 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from .routers import router
+from django.views.generic import TemplateView
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^api/', include('api.weather.urls')),
+    # url(r'^api/', include('api.weather.urls')),
+    url(r'^apiv2/', include('api.weather.urls')),
+    url(r'^api/', include(router.urls)),
+    url('customers', TemplateView.as_view(template_name='index.html')),
 ]

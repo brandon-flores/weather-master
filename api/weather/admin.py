@@ -3,12 +3,17 @@ from __future__ import unicode_literals
 
 from django.contrib import admin
 from api.weather.models import (
-    Avatar, Location, UserProfile, Customer)
+    Avatar, Location, UserProfile, Customer, Street)
 
 
 @admin.register(Avatar)
 class AvatarAdmin(admin.ModelAdmin):
     list_display = ('thumbnail_url', )
+
+
+@admin.register(Street)
+class StreetAdmin(admin.ModelAdmin):
+    model = Street
 
 
 @admin.register(Location)
